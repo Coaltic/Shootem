@@ -49,8 +49,13 @@ public class Rocket : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space) && bulletDelayTimer <= 0f)
         {
-            Instantiate(bullet, position:this.transform.position, Quaternion.identity, parent:this.transform.parent);
+            Instantiate(bullet, position:this.transform.position + new Vector3(0, rocketSpriteTop, 0), Quaternion.identity, parent:this.transform.parent);
             bulletDelayTimer = bulletDelay;
+        }
+
+        if (Input.GetKey(KeyCode.E))
+        {
+            ScreenCapture.CaptureScreenshot("TestImage.png");
         }
 
         if (bulletDelayTimer >= 0f)
